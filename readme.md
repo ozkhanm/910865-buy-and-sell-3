@@ -1,7 +1,7 @@
 # Учебный проект «Куплю. Продам» [![Build status][travis-image]][travis-url]
 
 * Студент: [Озхан Мамедов](https://up.htmlacademy.ru/nodejs/3/user/910865).
-* Наставник: `Неизвестно`.
+* Наставник: [Роман Шестернин](https://htmlacademy.ru/profile/id1831979).
 
 ---
 
