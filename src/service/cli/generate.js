@@ -1,6 +1,8 @@
 'use strict';
 
+const chalk = require(`chalk`);
 const fs = require(`fs`);
+
 const { getRandomInt, shuffle } = require(`../../utils`);
 
 const {
@@ -31,7 +33,7 @@ const getRandomCategoryList = (num) => {
 
 const generateOffers = (offersNumber) => {
   if (offersNumber > MAX_OFFER_COUNT) {
-    console.error(`Не больше 1000 объявлений`);
+    console.error(chalk.red(`Не больше 1000 объявлений`));
 
     process.exit(ExitCode.success);
   }
@@ -57,9 +59,11 @@ module.exports = {
 
     fs.writeFile(FILE_NAME, data, (err) => {
       if (err) {
+        console.error(chalk.red(`Ошибка`));
         process.exit(ExitCode.error);
       }
 
+      console.log(chalk.green(`Файл создан`));
       process.exit(ExitCode.success);
     });
   }
