@@ -10,14 +10,10 @@ const FILE_TITLES_PATH = `./data/titles.txt`;
 const FILE_CATEGORIES_PATH = `./data/categories.txt`;
 
 const {
-  MAX_OFFER_COUNT,
-  FILE_NAME,
-  DEFAULT_COUNT,
-  OfferType,
-  DescriptionRange,
-  PictureNumberRange,
-  SumRange,
-  ExitCode,
+  MAX_OFFER_COUNT, FILE_NAME, DEFAULT_COUNT,
+  OfferType, DescriptionRange, PictureNumberRange,
+  SumRange, ExitCode, MAX_ELEMENT_COUNT_MESSAGE,
+  MocksGenerationStatus
 } = require(`../../constants`);
 
 const readContent = async (filePath) => {
@@ -46,7 +42,7 @@ const getRandomCategoryList = (num, categories) => {
 
 const generateOffers = (offersNumber, titles, categories, sentences) => {
   if (offersNumber > MAX_OFFER_COUNT) {
-    console.error(chalk.red(`Не больше 1000 объявлений`));
+    console.error(chalk.red(MAX_ELEMENT_COUNT_MESSAGE));
 
     process.exit(ExitCode.success);
   }
@@ -76,10 +72,10 @@ module.exports = {
 
     try {
       await fs.writeFile(FILE_NAME, data);
-      console.log(chalk.green(`Файл создан`));
+      console.log(chalk.green(MocksGenerationStatus.success));
       process.exit(ExitCode.success);
     } catch (err) {
-      console.error(chalk.red(`Ошибка`));
+      console.error(chalk.red(MocksGenerationStatus.error));
       process.exit(ExitCode.error);
     }
   }

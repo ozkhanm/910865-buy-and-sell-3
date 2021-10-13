@@ -45,6 +45,13 @@ const HttpCode = {
   UNAUTHORIZED: 401,
 };
 
+const MAX_ELEMENT_COUNT_MESSAGE = `Не больше 1000 объявлений`;
+
+const MocksGenerationStatus = {
+  success: `Файл создан`,
+  error: `Ошибка`,
+};
+
 module.exports = {
   DEFAULT_COMMAND,
   DEFAULT_PORT,
@@ -58,4 +65,6 @@ module.exports = {
   DescriptionRange,
   ExitCode,
   HttpCode,
+  MAX_ELEMENT_COUNT_MESSAGE,
+  MocksGenerationStatus
 };
