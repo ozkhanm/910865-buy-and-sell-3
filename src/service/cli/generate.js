@@ -74,14 +74,13 @@ module.exports = {
     const offerCount = Number.parseInt(count, 10) || DEFAULT_COUNT;
     const data = JSON.stringify(generateOffers(offerCount, titles, categories, sentences));
 
-
     try {
       await fs.writeFile(FILE_NAME, data);
-      console.error(chalk.red(`Ошибка`));
-      process.exit(ExitCode.error);
-    } catch (err) {
       console.log(chalk.green(`Файл создан`));
       process.exit(ExitCode.success);
+    } catch (err) {
+      console.error(chalk.red(`Ошибка`));
+      process.exit(ExitCode.error);
     }
   }
 };
